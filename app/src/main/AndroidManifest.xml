@@ -30,19 +30,25 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity
             android:name=".LoginActivity"
-            android:exported="true"
-            android:label="@string/title_activity_login">
+            android:exported="true">
         </activity>
+
+        <activity
+            android:name=".RegisterActivity"
+            android:theme="@style/Translucent">
+        </activity>
+
+        <activity android:name=".LoginSuccessActivity"/>
 
         <service
             android:name="com.baidu.location.f"
@@ -50,6 +56,10 @@
             android:process=":remote">
         </service>
 
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings">
+        </activity>
     </application>
 
 </manifest>

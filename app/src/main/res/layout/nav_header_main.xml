@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
     android:gravity="bottom"
@@ -11,32 +12,37 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:background="@drawable/side_nav_bar"
+    android:background="@drawable/nav_background"
     android:backgroundTintMode="add">
     <!--android:background="@drawable/side_nav_bar"-->
 
     <ImageView
         android:id="@+id/appicon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:srcCompat="@drawable/park"/>
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        app:srcCompat="@drawable/park"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="4dp"/>
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:paddingTop="18dp"
         android:text="@string/app_name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="版本：1.0"/>
+        android:text="版本：1.0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Git commit:"/>
+        android:text="开发者：吕文睿 Elon-LYU"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
 
 </LinearLayout>

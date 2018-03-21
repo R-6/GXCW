@@ -16,6 +16,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity
     private TextView positionText;
     private MapView mapView;
     private BaiduMap baiduMap;
+    private BDLocation mLocation;
     private boolean isFirstLocate = true;
 
     @Override
@@ -89,6 +92,22 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        ImageButton locationButton = (ImageButton) findViewById(R.id.locationButton);
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToLocation();
+            }
+        });
+
+        //QMUIStatusBarHelper.translucent(this);//沉浸式状态栏
+
+    }
+
+    private void moveToLocation() {
+        LatLng ll = new LatLng(mLocation.getLatitude(),mLocation.getLongitude());
+        MapStatusUpdate locationUpdate =MapStatusUpdateFactory.newLatLng(ll);
+        baiduMap.animateMapStatus(locationUpdate);
     }
 
     @Override
@@ -137,7 +156,9 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_settings) {
+            Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_user) {
             Intent intent = new Intent(MainActivity.this,LoginActivity.class);
@@ -232,6 +253,7 @@ public class MainActivity extends AppCompatActivity
     public class MyLocationListener implements BDLocationListener {
         @Override
         public void onReceiveLocation(BDLocation location) {
+            mLocation = location;
             StringBuilder currentPosition = new StringBuilder();
             currentPosition.append("纬度:").append(location.getLatitude()).append("\n");
             currentPosition.append("经度:").append(location.getLongitude()).append("\n");
