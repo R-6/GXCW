@@ -40,9 +40,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         ButterKnife.inject(this);
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_register);
-//        setSupportActionBar(toolbar);
-
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 

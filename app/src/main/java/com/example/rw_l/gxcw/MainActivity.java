@@ -3,6 +3,7 @@ package com.example.rw_l.gxcw;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -163,9 +164,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_user) {
             Intent intent = new Intent(MainActivity.this,LoginActivity.class);
             startActivity(intent);
-
         } else if (id == R.id.nav_send) {
 
+        } else if (id == R.id.nav_github){
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("https://github.com/R-6/GXCW"));
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -199,7 +203,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onPause() {
         super.onPause();
-        mapView.onPause();
+        //mapView.onPause();
     }
 
     @Override

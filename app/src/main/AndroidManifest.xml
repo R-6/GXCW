@@ -48,7 +48,8 @@
             android:theme="@style/Translucent">
         </activity>
 
-        <activity android:name=".LoginSuccessActivity"/>
+        <activity android:name=".UserActivity"
+            android:label="个人信息"/>
 
         <service
             android:name="com.baidu.location.f"

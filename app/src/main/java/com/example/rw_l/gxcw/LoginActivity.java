@@ -6,11 +6,10 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.transition.Explode;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,9 +19,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 
-
 public class LoginActivity extends AppCompatActivity {
-
 
 
     @InjectView(R.id.et_username)
@@ -45,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
 
     FloatingActionButton fab;
 
+    @InjectView(R.id.toolbar_login)
+    Toolbar toolbar;
 
 
     @Override
@@ -56,12 +55,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         ButterKnife.inject(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_login);
-        setSupportActionBar(toolbar);
 
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
-
 
 
     @OnClick({R.id.bt_go, R.id.fab})
@@ -75,7 +73,6 @@ public class LoginActivity extends AppCompatActivity {
                 getWindow().setExitTransition(null);
 
                 getWindow().setEnterTransition(null);
-
 
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -96,27 +93,26 @@ public class LoginActivity extends AppCompatActivity {
 
             case R.id.bt_go:
 
-                Explode explode = new Explode();
+//                ActivityOptionsCompat oc2 = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
 
-                explode.setDuration(500);
-
-
-
-                getWindow().setExitTransition(explode);
-
-                getWindow().setEnterTransition(explode);
-
-                ActivityOptionsCompat oc2 = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
-
-                Intent i2 = new Intent(this,LoginSuccessActivity.class);
-
-                startActivity(i2, oc2.toBundle());
-
-                finish();
-
+                Intent i2 = new Intent(this, UserActivity.class);
+//                startActivity(i2, oc2.toBundle());
+//                TransitionsHeleper.startAcitivty(this,UserActivity.class,findViewById(R.id.bt_go));
+                startActivity(i2);
+                this.finish();
                 break;
 
         }
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
