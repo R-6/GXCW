@@ -8,9 +8,9 @@
             android:icon="@drawable/user"
             android:title="我的账号"/>
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery"/>
+            android:id="@+id/nav_car"
+            android:icon="@drawable/car"
+            android:title="我的车辆/车位"/>
     </group>
 
     <group

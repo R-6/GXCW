@@ -102,7 +102,6 @@ public class MainActivity extends AppCompatActivity
         });
 
         //QMUIStatusBarHelper.translucent(this);//沉浸式状态栏
-
     }
 
     private void moveToLocation() {
@@ -153,8 +152,9 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
+        } else if (id == R.id.nav_car) {
+            Intent intent = new Intent(MainActivity.this,ParkingLotAndCarActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_settings) {
@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onPause() {
         super.onPause();
-        //mapView.onPause();
+        //mapView.onPause();    //保持地图一直运行
     }
 
     @Override

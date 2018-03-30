@@ -1,9 +1,5 @@
 package com.example.rw_l.gxcw;
 
-/**
- * Created by RW_L on 2018/3/17 0017.
- */
-
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -29,7 +25,7 @@ public class UserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user);
+        setContentView(R.layout.activity_user);
 
         Toolbar toolbar = findViewById(R.id.toolbar_user);
         setSupportActionBar(toolbar);
@@ -53,19 +49,15 @@ public class UserActivity extends AppCompatActivity {
         itemView1.addAccessoryCustomView(imgv);
         itemView1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 230));
 
-        //创建第二个itemview，用户昵称
         final QMUICommonListItemView itemView2 = groupListView.createItemView(null, "昵称", nickName, QMUICommonListItemView.HORIZONTAL, 1);
         itemView2.showNewTip(true);
-        //创建第三个itemview，用户姓名
         final QMUICommonListItemView itemView3 = groupListView.createItemView(null, "姓名", userName, QMUICommonListItemView.HORIZONTAL, 1);
         itemView3.showNewTip(true);
-
-        //创建第四个itemview，手机号
         final QMUICommonListItemView itemView4 = groupListView.createItemView(null, "手机号", phoneNumber, QMUICommonListItemView.HORIZONTAL, 1);
         itemView4.showNewTip(true);
 
         QMUIGroupListView.newSection(this)
-//                .setTitle("我的信息")
+                //.setTitle("我的信息")
                 //.setDescription("这是Section 1的描述")
                 //groupListView.createItemView(null,"头像",null,1,3)
                 .addItemView(itemView1, new View.OnClickListener() {
@@ -93,16 +85,14 @@ public class UserActivity extends AppCompatActivity {
                         changeUserName(itemView4);
                     }
                 })
-                //如果没有title,加上默认title【Section n】
-                .setUseDefaultTitleIfNone(false)
-                // 默认使用TitleView的padding作section分隔,可以设置为false取消它
-                .setUseTitleViewForSectionSpace(true)
+                .setUseDefaultTitleIfNone(false)            //如果没有title,加上默认title【Section n】
+                .setUseTitleViewForSectionSpace(true)       //默认使用TitleView的padding作section分隔,可以设置为false取消它
                 .addTo(groupListView);
 
         // section 2
         QMUIGroupListView.newSection(this)
-//                .setTitle("Section Title 2")
-//                .setDescription("这是Section 2的描述")
+                //.setTitle("Section Title 2")
+                //.setDescription("这是Section 2的描述")
                 .addItemView(groupListView.createItemView(null,"微信","未绑定",1,0), new View.OnClickListener() {
                     public void onClick(View v) {
                     }
@@ -114,7 +104,8 @@ public class UserActivity extends AppCompatActivity {
                 .addTo(groupListView);
     }
 
-    //更改名字
+
+
     private void changeUserName(QMUICommonListItemView itemView) {
         myitemView = itemView;
         String key = myitemView.getText().toString();
@@ -142,6 +133,7 @@ public class UserActivity extends AppCompatActivity {
         });
         dialogChange.show();
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
