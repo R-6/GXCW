@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
@@ -34,6 +33,7 @@ import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
+import com.qmuiteam.qmui.widget.dialog.QMUIBottomSheet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity
     private BaiduMap baiduMap;
     private BDLocation mLocation;
     private boolean isFirstLocate = true;
+//    private SweetSheet mSweetSheet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,8 +106,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void moveToLocation() {
-        LatLng ll = new LatLng(mLocation.getLatitude(),mLocation.getLongitude());
-        MapStatusUpdate locationUpdate =MapStatusUpdateFactory.newLatLng(ll);
+        LatLng ll = new LatLng(mLocation.getLatitude(), mLocation.getLongitude());
+        MapStatusUpdate locationUpdate = MapStatusUpdateFactory.newLatLng(ll);
         baiduMap.animateMapStatus(locationUpdate);
     }
 
@@ -115,7 +116,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        }
+//        else if(mSweetSheet.isShow()){
+//            mSweetSheet.dismiss();
+//        }
+        else {
             super.onBackPressed();
         }
     }
@@ -135,14 +140,26 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Snackbar.make(mapView, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
+        if (id == R.id.action_share) {
+            //底部分享栏
+            QMUIBottomSheet.BottomGridSheetBuilder builder = new QMUIBottomSheet.BottomGridSheetBuilder(this);
+            builder.addItem(R.mipmap.icon_more_operation_share_friend, "分享到微信", 0)
+                    .addItem(R.mipmap.icon_more_operation_share_moment, "分享到朋友圈", 0)
+                    .addItem(R.mipmap.icon_more_operation_share_weibo, "分享到微博", 0)
+                    .addItem(R.mipmap.icon_more_operation_share_chat, "分享到私信", 0)
+                    .addItem(R.mipmap.icon_more_operation_share_link, "复制链接", 1)
+                    .build().show();
+//            FrameLayout frameLayout = findViewById(R.id.frame_sweet);
+//            mSweetSheet = new SweetSheet(frameLayout);
+//            mSweetSheet.setMenuList(R.menu.sheet);
+//            mSweetSheet.setDelegate(new ViewPagerDelegate(4,680));
+//            mSweetSheet.setBackgroundEffect(new DimEffect(6));
+//            mSweetSheet.show();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -153,27 +170,27 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_car) {
-            Intent intent = new Intent(MainActivity.this,ParkingLotAndCarActivity.class);
+            Intent intent = new Intent(MainActivity.this, ParkingLotActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_settings) {
-            Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_user) {
-            Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_booking) {
 
-        } else if (id == R.id.nav_github){
+        } else if (id == R.id.nav_github) {
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse("https://github.com/R-6/GXCW"));
             startActivity(intent);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 

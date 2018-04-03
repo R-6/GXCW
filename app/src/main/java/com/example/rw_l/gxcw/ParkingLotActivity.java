@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class ParkingLotAndCarActivity extends AppCompatActivity {
+public class ParkingLotActivity extends AppCompatActivity {
 
     @InjectView(R.id.tabSegment)
     QMUITabSegment mTabSegment;
@@ -30,7 +30,7 @@ public class ParkingLotAndCarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_parking_lot_and_car);
+        setContentView(R.layout.activity_parking_lot);
 
         ButterKnife.inject(this);
 
@@ -49,8 +49,8 @@ public class ParkingLotAndCarActivity extends AppCompatActivity {
 
         //设置TabSegment的属性
         mTabSegment.setupWithViewPager(mViewPager, false); //第二个参数要为false,表示不从adapter拿数据
-        mTabSegment.addTab(new QMUITabSegment.Tab("我的车辆"));
-        mTabSegment.addTab(new QMUITabSegment.Tab("我的车位"));
+        mTabSegment.addTab(new QMUITabSegment.Tab("车位"));
+        mTabSegment.addTab(new QMUITabSegment.Tab("停车场"));
         mTabSegment.setHasIndicator(true);  //是否需要显示indicator
         mTabSegment.setIndicatorPosition(false);//true 时表示 indicator 位置在 Tab 的上方, false 时表示在下方
         mTabSegment.setIndicatorWidthAdjustContent(true);//设置 indicator的宽度是否随内容宽度变化

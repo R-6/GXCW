@@ -10,15 +10,15 @@
         <item
             android:id="@+id/nav_car"
             android:icon="@drawable/car"
-            android:title="我的车辆/车位"/>
+            android:title="我的车位"/>
     </group>
 
     <group
         android:id="@+id/nav_group_2nd">
         <item
-            android:id="@+id/nav_send"
-            android:icon="@drawable/ic_menu_send"
-            android:title="Send"/>
+            android:id="@+id/nav_booking"
+            android:icon="@drawable/booking"
+            android:title="我的预定"/>
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"

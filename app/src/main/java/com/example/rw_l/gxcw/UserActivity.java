@@ -1,5 +1,6 @@
 package com.example.rw_l.gxcw;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -67,12 +68,12 @@ public class UserActivity extends AppCompatActivity {
                 })
                 .addItemView(itemView2, new View.OnClickListener() {
                     public void onClick(View v) {
-                        changeUserName(itemView2);
+                        changeData(itemView2);
                     }
                 })
                 .addItemView(itemView3, new View.OnClickListener() {
                     public void onClick(View v) {
-                        changeUserName(itemView3);
+                        changeData(itemView3);
                     }
                 })
                 .addItemView(groupListView.createItemView(null,"实名认证","未认证",1,0), new View.OnClickListener() {
@@ -82,7 +83,7 @@ public class UserActivity extends AppCompatActivity {
                 .addItemView(itemView4, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        changeUserName(itemView4);
+                        changeData(itemView4);
                     }
                 })
                 .setUseDefaultTitleIfNone(false)            //如果没有title,加上默认title【Section n】
@@ -93,12 +94,21 @@ public class UserActivity extends AppCompatActivity {
         QMUIGroupListView.newSection(this)
                 //.setTitle("Section Title 2")
                 //.setDescription("这是Section 2的描述")
-                .addItemView(groupListView.createItemView(null,"微信","未绑定",1,0), new View.OnClickListener() {
+                .addItemView(groupListView.createItemView(null,"车牌号","粤BXXXXX",1,0), new View.OnClickListener() {
                     public void onClick(View v) {
                     }
                 })
-                .addItemView(groupListView.createItemView(null,"QQ","未绑定",1,0), new View.OnClickListener() {
+                .addItemView(groupListView.createItemView(null,"车型","Tesla Modle3",1,0), new View.OnClickListener() {
                     public void onClick(View v) {
+                    }
+                })
+                .addTo(groupListView);
+
+        QMUIGroupListView.newSection(this)
+                .addItemView(groupListView.createItemView(null,"修改密码",null,1,1), new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(UserActivity.this,UpdataPasswordActivity.class);
+                        startActivity(intent);
                     }
                 })
                 .addTo(groupListView);
@@ -106,9 +116,9 @@ public class UserActivity extends AppCompatActivity {
 
 
 
-    private void changeUserName(QMUICommonListItemView itemView) {
+    private void changeData(QMUICommonListItemView itemView) {
         myitemView = itemView;
-        String key = myitemView.getText().toString();
+        final String key = myitemView.getText().toString();
         dialogChange = new QMUIDialog.EditTextDialogBuilder(this);
         dialogChange.setPlaceholder("在此输入您的"+key);
         dialogChange.setTitle("更改"+key);
@@ -125,6 +135,7 @@ public class UserActivity extends AppCompatActivity {
                 if (str == null || str.length() <= 0)
                     Toast.makeText(UserActivity.this, "请输入"+myitemView.getText().toString(), Toast.LENGTH_SHORT).show();
                 else {
+                    updataMessage(key,str);
                     myitemView.setDetailText(str);
                     dialog.cancel();
                     myitemView.showNewTip(false);
@@ -132,6 +143,11 @@ public class UserActivity extends AppCompatActivity {
             }
         });
         dialogChange.show();
+    }
+
+    //更新数据到后台,调用接口
+    public void updataMessage(String key,String str){
+
     }
 
 

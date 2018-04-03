@@ -22,7 +22,7 @@
 
     <FrameLayout
         android:layout_centerInParent="true"
-        android:paddingTop="70dp"
+        android:paddingTop="50dp"
         android:layout_width="320dp"
         android:layout_height="400dp">
 

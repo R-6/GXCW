@@ -25,15 +25,16 @@
         android:layout_marginLeft="4dp"/>
 
 
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingTop="18dp"-->
+        <!--android:text="@string/app_name"-->
+        <!--android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="18dp"
-        android:text="@string/app_name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
         android:text="版本：1.0"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
