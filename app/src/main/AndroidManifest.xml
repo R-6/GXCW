@@ -60,7 +60,7 @@
             android:label="@string/title_activity_settings">
         </activity>
         <activity
-            android:name=".ParkingLotActivity"
+            android:name=".ParkingLotActivity02"
             android:label="我的车位">
         </activity>
         <activity
@@ -71,14 +71,20 @@
             android:name=".HistoryActivity"
             android:label="停车记录">
         </activity>
-        <activity android:name=".UpdataSingleLotActivity"
+        <activity
+            android:name=".UpdataSingleLotActivity"
             android:label="车位信息">
         </activity>
-        <activity android:name=".UpdataParkingLotActivity"
+        <activity
+            android:name=".UpdataParkingLotActivity"
             android:label="停车场信息">
         </activity>
-        <activity android:name=".ParkingActivity"
+        <activity
+            android:name=".ParkingActivity"
             android:label="正在停车">
+        </activity>
+        <activity android:name=".ParkingLotActivity"
+            android:theme="@style/MaterialViewPager">
         </activity>
     </application>
 

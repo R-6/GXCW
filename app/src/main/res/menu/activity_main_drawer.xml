@@ -16,17 +16,17 @@
     <group
         android:id="@+id/nav_group_2nd">
         <item
-            android:id="@+id/nav_booking"
-            android:icon="@drawable/booking"
-            android:title="我的预定"/>
+            android:id="@+id/nav_history"
+            android:icon="@drawable/history"
+            android:title="停车记录"/>
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import"/>
+            android:title="待开发..."/>
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow"/>
+            android:title="待开发..."/>
     </group>
 
     <group

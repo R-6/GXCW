@@ -1,63 +1,82 @@
 package com.example.rw_l.gxcw;
 
 import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.qmuiteam.qmui.widget.QMUITabSegment;
+import com.github.florent37.materialviewpager.MaterialViewPager;
+import com.github.florent37.materialviewpager.header.HeaderDesign;
 
 import java.util.ArrayList;
-
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import java.util.List;
 
 public class ParkingLotActivity extends AppCompatActivity {
 
-    @InjectView(R.id.tabSegment)
-    QMUITabSegment mTabSegment;
+//    @BindView(R.id.materialViewPager)
+//    MaterialViewPager mViewPager;
 
-    @InjectView(R.id.contentViewPager)
-    ViewPager mViewPager;
 
-    @InjectView(R.id.toolbar_parkingLot_and_car)
-    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parking_lot);
+        setTitle("");
+        //        ButterKnife.bind(this);
+        MaterialViewPager mViewPager = findViewById(R.id.materialViewPager233);
 
-        ButterKnife.inject(this);
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = mViewPager.getToolbar();
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+        }
 
-        //构建ViewPager的Adapter
-        MyPagerAdapter mPagerAdapter = new MyPagerAdapter();
-        ArrayList<View> aList = new ArrayList<View>();
-        LayoutInflater li = getLayoutInflater();
-        aList.add(li.inflate(R.layout.view_car,null,false));
-        aList.add(li.inflate(R.layout.view_parking_lot,null,false));
-//        aList.add(li.inflate(R.layout.view_three,null,false));
-        mPagerAdapter = new MyPagerAdapter(aList);
-        mViewPager.setAdapter(mPagerAdapter);
 
-        //设置TabSegment的属性
-        mTabSegment.setupWithViewPager(mViewPager, false); //第二个参数要为false,表示不从adapter拿数据
-        mTabSegment.addTab(new QMUITabSegment.Tab("车位"));
-        mTabSegment.addTab(new QMUITabSegment.Tab("停车场"));
-        mTabSegment.setHasIndicator(true);  //是否需要显示indicator
-        mTabSegment.setIndicatorPosition(false);//true 时表示 indicator 位置在 Tab 的上方, false 时表示在下方
-        mTabSegment.setIndicatorWidthAdjustContent(true);//设置 indicator的宽度是否随内容宽度变化
-        mTabSegment.setMode(QMUITabSegment.MODE_FIXED); //固定宽度，item内容均分
-        //        mTabSegment.reset();
+        //        MaterialViewPagerHelper.registerScrollView(this, mScrollView);
 
-        mTabSegment.notifyDataChanged();
+        List<Fragment> fragments=new ArrayList<Fragment>();
+        fragments.add(new ScrollFragment_parkingLot());
+        fragments.add(new ScrollFragment_singleLot());
+        mFragAdapter adapter = new mFragAdapter(getSupportFragmentManager(), fragments);
+        mViewPager.getViewPager().setAdapter(adapter);
+
+        mViewPager.setMaterialViewPagerListener(new MaterialViewPager.Listener() {
+            @Override
+            public HeaderDesign getHeaderDesign(int page) {
+                switch (page) {
+                    case 0:
+                        return HeaderDesign.fromColorResAndUrl(
+                                R.color.green_teal,
+//                                "http://phandroid.s3.amazonaws.com/wp-content/uploads/2014/06/android_google_moutain_google_now_1920x1080_wallpaper_Wallpaper-HD_2560x1600_www.paperhi.com_-640x400.jpg"
+                                "http://sc.68design.net/photofiles/201107/YOBuP5Byd0.jpg");
+                    case 1:
+                        return HeaderDesign.fromColorResAndUrl(
+                                R.color.blue,
+                                "http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2014/06/wallpaper_51.jpg");
+                }
+
+                //execute others actions if needed (ex : modify your header logo)
+
+                return null;
+            }
+        });
+
+        mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
+        mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
+
+        //        final View logo = findViewById(R.id.logo_white);
+        //        if (logo != null) {
+        //            logo.setOnClickListener(new View.OnClickListener() {
+        //                @Override
+        //                public void onClick(View v) {
+        //                    mViewPager.notifyHeaderChanged();
+        //                    Toast.makeText(getApplicationContext(), "Yes, the title is clickable", Toast.LENGTH_SHORT).show();
+        //                }
+        //            });
+        //        }
 
     }
 
@@ -71,38 +90,61 @@ public class ParkingLotActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //VIEW的PagerAdapter，重写4个必要方法和两个构造方法
 
-    public class MyPagerAdapter extends PagerAdapter {
-        private ArrayList<View> viewLists;
+    //
+    //-----自定义Fragment适配器-----//
+    //
+    public class mFragAdapter extends FragmentPagerAdapter {
 
-        public MyPagerAdapter() {
+        private List<Fragment> mFragments;
+
+        public mFragAdapter(FragmentManager fm, List<Fragment> fragments) {
+            super(fm);
+            mFragments=fragments;
         }
 
-        public MyPagerAdapter(ArrayList<View> viewLists) {
-            super();
-            this.viewLists = viewLists;
+        @Override
+        public Fragment getItem(int arg0) {
+            return mFragments.get(arg0);
         }
+
+//        @Override
+//        public int getCount() {
+//            return mFragments.size();
+//        }
+
+//        @Override
+//        public Fragment getItem(int position) {
+//            switch (position % 2) {
+//                case 0:
+//                    Fragment fragment=new ScrollFragment_parkingLot();
+//                    Bundle bundle=new Bundle();
+//                    fragment.setArguments(bundle);
+//                    return fragment;
+//                //                    return new ScrollFragment_parkingLot().newInstance();
+//                case 1:
+//                    return new ScrollFragment_singleLot().newInstance();
+//                default:
+//                    return null;
+//            }
+//        }
 
         @Override
         public int getCount() {
-            return viewLists.size();
+            return 2;
         }
 
         @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view == object;
+        public CharSequence getPageTitle(int position) {
+            switch (position % 2) {
+                case 0:
+                    return "我的停车场";
+                case 1:
+                    return "我的车位";
+            }
+            return "";
         }
 
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            container.addView(viewLists.get(position));
-            return viewLists.get(position);
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            container.removeView(viewLists.get(position));
-        }
     }
+
 }

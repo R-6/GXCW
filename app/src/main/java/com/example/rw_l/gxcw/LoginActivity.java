@@ -14,35 +14,35 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 
 
 public class LoginActivity extends AppCompatActivity {
 
 
-    @InjectView(R.id.et_username)
+    @BindView(R.id.et_username)
 
     EditText etUsername;
 
-    @InjectView(R.id.et_password)
+    @BindView(R.id.et_password)
 
     EditText etPassword;
 
-    @InjectView(R.id.bt_go)
+    @BindView(R.id.bt_go)
 
     Button btGo;
 
-    @InjectView(R.id.cv)
+    @BindView(R.id.cv)
 
     CardView cv;
 
-    @InjectView(R.id.fab)
+    @BindView(R.id.fab)
 
     FloatingActionButton fab;
 
-    @InjectView(R.id.toolbar_login)
+    @BindView(R.id.toolbar_login)
     Toolbar toolbar;
 
 
@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -1,56 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/colorPrimary"
-              android:orientation="vertical"
-              tools:context=".ParkingLotActivity">
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                                        android:id="@+id/drawer_layout"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
+    <com.github.florent37.materialviewpager.MaterialViewPager
+        android:id="@+id/materialViewPager233"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent"
+        app:viewpager_logo="@layout/header_logo"
+        app:viewpager_pagerTitleStrip="@layout/material_view_pager_pagertitlestrip_newstand"
+        app:viewpager_logoMarginTop="66dp"
+        app:viewpager_color="@color/colorPrimary"
+        app:viewpager_headerHeight="200dp"
+        app:viewpager_headerAlpha="1.0"
+        app:viewpager_imageHeaderDarkLayerAlpha="0.2"
+        app:viewpager_hideLogoWithFade="true"
+        app:viewpager_hideToolbarAndTitle="false"
+        app:viewpager_enableToolbarElevation="true"
+        app:viewpager_parallaxHeaderFactor="1.5"
+        app:viewpager_headerAdditionalHeight="25dp"
+        app:viewpager_displayToolbarWhenSwipe="true"
+        app:viewpager_transparentToolbar="false"
+        app:viewpager_animatedHeaderImage="true"
+        />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_parkingLot_and_car"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+    <!--<include layout="@layout/scroll_view_parking_lot" />-->
 
-    </android.support.design.widget.AppBarLayout>
-
-    <!--<com.qmuiteam.qmui.widget.QMUITabSegment-->
-    <!--android:id="@+id/tabSegment"-->
-    <!--android:layout_gravity="bottom"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="40dp"-->
-    <!--android:background="@drawable/tab_panel_bg"/>-->
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="0dp"
-        android:paddingTop="0dp">
-        <com.qmuiteam.qmui.widget.QMUITabSegment
-            android:id="@+id/tabSegment"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@drawable/tab_panel_bg"/>
-
-    </RelativeLayout>
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/contentViewPager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/qmui_config_color_white">
-
-        </android.support.v4.view.ViewPager>
-
-</LinearLayout>
-
-
+</android.support.v4.widget.DrawerLayout>

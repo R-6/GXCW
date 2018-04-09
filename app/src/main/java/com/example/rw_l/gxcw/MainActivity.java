@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity
 
     private void moveToLocation() {
         LatLng ll = new LatLng(mLocation.getLatitude(), mLocation.getLongitude());
-        MapStatusUpdate locationUpdate = MapStatusUpdateFactory.newLatLng(ll);
+        MapStatusUpdate locationUpdate = MapStatusUpdateFactory.newLatLngZoom(ll,17);
         baiduMap.animateMapStatus(locationUpdate);
     }
 
@@ -149,12 +149,6 @@ public class MainActivity extends AppCompatActivity
                     .addItem(R.mipmap.icon_more_operation_share_chat, "分享到私信", 0)
                     .addItem(R.mipmap.icon_more_operation_share_link, "复制链接", 1)
                     .build().show();
-//            FrameLayout frameLayout = findViewById(R.id.frame_sweet);
-//            mSweetSheet = new SweetSheet(frameLayout);
-//            mSweetSheet.setMenuList(R.menu.sheet);
-//            mSweetSheet.setDelegate(new ViewPagerDelegate(4,680));
-//            mSweetSheet.setBackgroundEffect(new DimEffect(6));
-//            mSweetSheet.show();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -168,7 +162,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            Intent intent = new Intent(MainActivity.this,ParkingLotActivity02.class);
+            startActivity(intent);
         } else if (id == R.id.nav_car) {
             Intent intent = new Intent(MainActivity.this, ParkingLotActivity.class);
             startActivity(intent);
@@ -181,7 +176,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_user) {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_booking) {
+        } else if (id == R.id.nav_history) {
 
         } else if (id == R.id.nav_github) {
             Intent intent = new Intent(Intent.ACTION_VIEW);
