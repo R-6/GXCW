@@ -1,12 +1,15 @@
-package com.example.rw_l.gxcw;
+package com.example.rw_l.gxcw.user;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.rw_l.gxcw.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,10 +36,20 @@ public class UpdataPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_updata_password);
         ButterKnife.bind(this);
+
         button_done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changepassword();
+                if(password_updata_origin.length()!=0
+                        &&password_updata_new.length()!=0
+                        &&password_updata_new_again.length()!=0) {
+                    if(password_updata_new.getText().toString()
+                            .equals(password_updata_new_again.getText().toString())) {
+                        changepassword();
+                    }
+                    else Toast.makeText(UpdataPasswordActivity.this,"新密码不一致",Toast.LENGTH_SHORT).show();
+                }else
+                    Toast.makeText(UpdataPasswordActivity.this,"密码不能为空",Toast.LENGTH_SHORT).show();
             }
         });
 

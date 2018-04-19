@@ -1,4 +1,4 @@
-package com.example.rw_l.gxcw;
+package com.example.rw_l.gxcw.parkingLot;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.example.rw_l.gxcw.R;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 
@@ -57,9 +58,7 @@ public class ParkingLotActivity extends AppCompatActivity {
                                 R.color.blue,
                                 "http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2014/06/wallpaper_51.jpg");
                 }
-
                 //execute others actions if needed (ex : modify your header logo)
-
                 return null;
             }
         });
@@ -91,13 +90,13 @@ public class ParkingLotActivity extends AppCompatActivity {
     }
 
 
+
     //
     //-----自定义Fragment适配器-----//
     //
     public class mFragAdapter extends FragmentPagerAdapter {
 
         private List<Fragment> mFragments;
-
         public mFragAdapter(FragmentManager fm, List<Fragment> fragments) {
             super(fm);
             mFragments=fragments;
@@ -107,7 +106,21 @@ public class ParkingLotActivity extends AppCompatActivity {
         public Fragment getItem(int arg0) {
             return mFragments.get(arg0);
         }
+        @Override
+        public int getCount() {
+            return 2;
+        }
 
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position % 2) {
+                case 0:
+                    return "我的停车场";
+                case 1:
+                    return "我的车位";
+            }
+            return "";
+        }
 //        @Override
 //        public int getCount() {
 //            return mFragments.size();
@@ -128,23 +141,6 @@ public class ParkingLotActivity extends AppCompatActivity {
 //                    return null;
 //            }
 //        }
-
-        @Override
-        public int getCount() {
-            return 2;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position % 2) {
-                case 0:
-                    return "我的停车场";
-                case 1:
-                    return "我的车位";
-            }
-            return "";
-        }
-
     }
 
 }

@@ -1,4 +1,4 @@
-package com.example.rw_l.gxcw;
+package com.example.rw_l.gxcw.user;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.rw_l.gxcw.R;
+import com.example.rw_l.gxcw.myAppContext;
 import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
@@ -22,20 +24,38 @@ public class UserActivity extends AppCompatActivity {
     private String nickName;
     private String userName;
     private String phoneNumber;
+    private String carNum;
+    private String carKind;
+    myAppContext app;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
+        app = (myAppContext) getApplication();
+
         Toolbar toolbar = findViewById(R.id.toolbar_user);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //初始化用户信息，调用接口
-        nickName = "Chris";
-        userName = "克里斯";
-        phoneNumber = "136*****666";
+        if(app.isFirstLogin()) {
+            Intent intent = getIntent();
+            Bundle bundle = intent.getExtras();
+            nickName = bundle.getString("userNickName");
+            userName = bundle.getString("userName");
+            phoneNumber = bundle.getString("phone");
+            carNum = bundle.getString("carNum");
+            carKind = bundle.getString("carKind");
+        }else{
+            nickName = app.getNickName();
+            userName = app.getUserName();
+            phoneNumber = app.getPhoneNumber();
+            carNum = app.getCarNum();
+            carKind = app.getCarKind();
+        }
 
         // section 1
         QMUIGroupListView groupListView = findViewById(R.id.groupListView_user);
@@ -94,11 +114,11 @@ public class UserActivity extends AppCompatActivity {
         QMUIGroupListView.newSection(this)
                 //.setTitle("Section Title 2")
                 //.setDescription("这是Section 2的描述")
-                .addItemView(groupListView.createItemView(null,"车牌号","粤BXXXXX",1,0), new View.OnClickListener() {
+                .addItemView(groupListView.createItemView(null,"车牌号",carNum,1,0), new View.OnClickListener() {
                     public void onClick(View v) {
                     }
                 })
-                .addItemView(groupListView.createItemView(null,"车型","Tesla Modle3",1,0), new View.OnClickListener() {
+                .addItemView(groupListView.createItemView(null,"车型",carKind,1,0), new View.OnClickListener() {
                     public void onClick(View v) {
                     }
                 })
@@ -132,7 +152,7 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(QMUIDialog dialog, int index) {
                 String str = dialogChange.getEditText().getText().toString();
-                if (str == null || str.length() <= 0)
+                if ( str.length() <= 0)
                     Toast.makeText(UserActivity.this, "请输入"+myitemView.getText().toString(), Toast.LENGTH_SHORT).show();
                 else {
                     updataMessage(key,str);

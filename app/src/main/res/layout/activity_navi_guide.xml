@@ -15,26 +15,7 @@
 
                 android:paddingTop="@dimen/activity_vertical_margin"
 
-                android:gravity="center"
+                tools:context=".navigation.NaviGuideActivity" >
 
-                tools:context="com.example.rw_l.gxcw.user.UserActivity">
-
-
-
-    <TextView
-
-        android:layout_width="wrap_content"
-
-        android:layout_height="wrap_content"
-
-        android:text="登录成功"
-
-        android:textSize="24sp"
-
-        android:textColor="#03A9F4"
-
-        android:textStyle="bold"
-
-        />
 
 </RelativeLayout>

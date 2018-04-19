@@ -44,7 +44,7 @@ public class ParkingLotActivity02 extends AppCompatActivity {
         View view = li.inflate(R.layout.scroll_view_parking_lot, mViewPager, false);
         aList.add(view);
 //        aList.add(li.inflate(R.layout.view_car,null,false));
-        aList.add(li.inflate(R.layout.view_parking_lot,mViewPager,false));
+        aList.add(li.inflate(R.layout.scroll_view_single_lot,mViewPager,false));
 //        aList.add(li.inflate(R.layout.view_three,null,false));
         mPagerAdapter = new MyPagerAdapter(aList);
         mViewPager.setAdapter(mPagerAdapter);

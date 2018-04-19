@@ -11,26 +11,13 @@
             android:id="@+id/nav_car"
             android:icon="@drawable/car"
             android:title="我的车位"/>
-    </group>
-
-    <group
-        android:id="@+id/nav_group_2nd">
         <item
             android:id="@+id/nav_history"
             android:icon="@drawable/history"
             android:title="停车记录"/>
-        <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="待开发..."/>
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="待开发..."/>
     </group>
 
-    <group
-        android:id="@+id/nav_group_3rd">
+    <group android:id="@+id/nav_group_3rd">
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_info_black_24dp"
@@ -43,8 +30,10 @@
 
     </group>
 
-    <item
-        android:id="@+id/nav_github"
-        android:icon="@drawable/ic_github"
-        android:title="GitHub"/>
+    <group android:id="@+id/nav_group_2nd">
+        <item
+            android:id="@+id/nav_github"
+            android:icon="@drawable/ic_github"
+            android:title="GitHub"/>
+    </group>
 </menu>

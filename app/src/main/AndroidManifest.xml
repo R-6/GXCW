@@ -6,16 +6,29 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.READ_PROFILE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCES_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_GPS"/>
+    <!-- SDK1.5需要android.permission.GET_TASKS权限判断本程序是否为当前运行的应用? -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <!-- 来电消音 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!-- 摄影机 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -23,7 +36,8 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/park"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name="com.example.rw_l.gxcw.myAppContext">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="BKbHDDX9EyVthOrVXUMpGARO7iPdbcC7"/>
@@ -38,15 +52,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".user.LoginActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".user.RegisterActivity"
             android:theme="@style/Translucent">
         </activity>
         <activity
-            android:name=".UserActivity"
+            android:name=".user.UserActivity"
             android:label="个人信息"/>
 
         <service
@@ -64,27 +78,35 @@
             android:label="我的车位">
         </activity>
         <activity
-            android:name=".UpdataPasswordActivity"
+            android:name=".user.UpdataPasswordActivity"
             android:label="更改密码">
         </activity>
         <activity
             android:name=".HistoryActivity"
-            android:label="停车记录">
+            android:label="停车记录"
+            android:theme="@style/MaterialViewPager">
         </activity>
         <activity
-            android:name=".UpdataSingleLotActivity"
+            android:name=".parkingLot.UpdataSingleLotActivity"
             android:label="车位信息">
         </activity>
         <activity
-            android:name=".UpdataParkingLotActivity"
+            android:name=".parkingLot.UpdataParkingLotActivity"
             android:label="停车场信息">
         </activity>
         <activity
             android:name=".ParkingActivity"
             android:label="正在停车">
         </activity>
-        <activity android:name=".ParkingLotActivity"
+        <activity
+            android:name=".parkingLot.ParkingLotActivity"
             android:theme="@style/MaterialViewPager">
+        </activity>
+        <activity android:name=".navigation.NaviGuideActivity">
+        </activity>
+        <activity
+            android:name=".navigation.NaviInitActivity"
+            android:label="导航初始化">
         </activity>
     </application>
 

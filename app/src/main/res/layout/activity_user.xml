@@ -11,7 +11,7 @@
 
              android:background="@color/colorPrimary"
 
-             tools:context="com.example.rw_l.gxcw.UserActivity">
+             tools:context="com.example.rw_l.gxcw.user.UserActivity">
 
 
 

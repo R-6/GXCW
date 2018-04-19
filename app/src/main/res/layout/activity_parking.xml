@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,4 +7,161 @@
     android:layout_height="match_parent"
     tools:context="com.example.rw_l.gxcw.ParkingActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_parking"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.CardView
+
+        android:layout_marginTop="?attr/qmui_topbar_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="3dp"
+        app:cardUseCompatPadding="true"
+        android:id="@+id/parking_cv"
+        android:clickable="true"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
+            <TextView
+                android:id="@+id/parking_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="广药教学楼停车场"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textSize="23sp"
+                android:layout_centerHorizontal="true"/>
+
+            <RelativeLayout
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:id="@+id/relativeLayout"
+                android:layout_below="@+id/image"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    app:srcCompat="?attr/qmui_tab_sign_count_view_bg"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="45dp"
+                    android:text="开始时间:"/>
+                <TextView
+                    android:id="@+id/start_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="125dp"
+                    android:text="9:20  am"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:id="@+id/relativeLayout2"
+                android:layout_below="@+id/relativeLayout"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+                <ImageView
+
+                    android:id="@+id/imageView234"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    app:srcCompat="@drawable/qmui_switch_thumb_checked"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:text="订单号:"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:id="@+id/parking_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="125dp"
+                    android:text="20180204122"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:layout_below="@+id/relativeLayout2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+                <ImageView
+
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    app:srcCompat="@drawable/qmui_switch_thumb_checked"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:text="收费信息"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:id="@+id/playI_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="125dp"
+                    android:text="5元/小时"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_height="180dp"
+                android:layout_marginTop="50dp"
+                android:layout_width="match_parent"
+                android:src="@drawable/bt_bottom_sheet"
+                />
+            <Button
+                android:id="@+id/end_parking"
+                android:layout_width="120dp"
+                android:layout_height="56dp"
+                android:backgroundTint="@color/green_teal"
+                android:textColor="#ffffff"
+                android:text="结束停车"
+                android:textSize="18sp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+            <!--</android.support.v7.widget.CardView>-->
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>
