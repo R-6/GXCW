@@ -167,9 +167,19 @@ public class UserActivity extends AppCompatActivity {
 
     //更新数据到后台,调用接口
     public void updataMessage(String key,String str){
+        switch(key) {
+            case ("昵称"):
+                app.setNickName(str);
+                break;
+            case ("姓名"):
+                app.setUserName(str);
+                break;
+            case ("手机号"):
+                app.setPhoneNumber(str);
+                break;
+        }
 
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

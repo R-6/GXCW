@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity
 
         app = (myAppContext) getApplication();
         app.setFirstLogin(true);        //是否登陆过了
-        app.setIp("192.168.1.105:8080");    //配置服务器ip
+        app.setIp("192.168.43.79:8080");    //配置服务器ip
 
         initView();     //初始化控件
 
@@ -218,17 +218,19 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        ParkingButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(isNearHasParking()){
-                    Intent intent = new Intent(MainActivity.this,ParkingActivity.class);
-                    startActivity(intent);
-                }
-                else
-                    Toast.makeText(MainActivity.this,"你不在此车位附近,请到达车位后再点击停车按钮",Toast.LENGTH_LONG).show();
-            }
-        });
+//        ParkingButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(isNearHasParking()){
+//                    Bundle bund= new Bundle();
+//                    bund.putString("name",);
+//                    Intent intent = new Intent(MainActivity.this,ParkingActivity.class);
+//                    startActivity(intent);
+//                }
+//                else
+//                    Toast.makeText(MainActivity.this,"你不在此车位附近,请到达车位后再点击停车按钮",Toast.LENGTH_LONG).show();
+//            }
+//        });
     }
 
     //判断所需权限是否有授权
@@ -520,13 +522,15 @@ public class MainActivity extends AppCompatActivity
         viewHolder.infoPhone.setText(info.getPhone());
 
         naviInit(info);
+        parkingInfo(info);
     }
+
 
 
     public void setStaticDataToInfo() {
 //        IDNA.Info.infos.clear();
         //增加停车点
-        infos.add(new Info("22.47862532", "113.4204848", "http://imgsrc.baidu.com/forum/w%3D580/sign=a64442e2c9bf6c81f7372ce08c3fb1d7/9a1c3f12b31bb051c2df15a2337adab44bede028.jpg",null, "广药教学楼停车场", "中山市五桂山广东药科大学", "80", "62","13612345678"));
+        infos.add(new Info("22.47882562", "113.4196763", "http://imgsrc.baidu.com/forum/w%3D580/sign=a64442e2c9bf6c81f7372ce08c3fb1d7/9a1c3f12b31bb051c2df15a2337adab44bede028.jpg",null, "广药教学楼停车场", "中山市五桂山广东药科大学", "80", "62","13612345678"));
         infos.add(new Info("22.4855104", "113.419230", "http://imgsrc.baidu.com/forum/w%3D580/sign=cd14ef99ae18972ba33a00c2d6cc7b9d/a3399e22720e0cf3cac89d760f46f21fbf09aaef.jpg", null, "广药体育场", "中山市五桂山广东药科大学", "50", "37","10806"));
 //        Info.infos.add(new Info("116.254322", "22.2940235", "http://images.juheapi.com/park/6202.jpg", "http://images.juheapi.com/park/P1003.png", "北京化工大学电教楼", "北京市朝阳区北京化工大学", "123", "66"));
         displayMarker(infos);//把存储在Info中的信息填充到Marker点中，显示在地图上。
@@ -806,7 +810,6 @@ public class MainActivity extends AppCompatActivity
         buttonNavi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {//要先点击定位按钮！！！！
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
 
                 Intent intent = new Intent(MainActivity.this, NaviInitActivity.class);
                 Bundle bundle = new Bundle();
@@ -826,6 +829,25 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
+
+    private void parkingInfo(final Info info) {
+        ParkingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isNearHasParking()){
+                    Bundle bund= new Bundle();
+                    bund.putString("name",info.getName());
+                    bund.putString("picture",info.getPicture());
+                    Intent intent = new Intent(MainActivity.this,ParkingActivity.class);
+                    intent.putExtras(bund);
+                    startActivity(intent);
+                }
+                else
+                    Toast.makeText(MainActivity.this,"你不在此车位附近,请到达车位后再点击停车按钮",Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
 
 
     //从url地址中拿出图片转化为bitmap格式
@@ -851,7 +873,7 @@ public class MainActivity extends AppCompatActivity
     public boolean isNearHasParking() {
         LatLng locationll = new LatLng(mLocation.getLatitude(), mLocation.getLongitude());
         nowMarker.getPosition();
-        if (DistanceUtil.getDistance(locationll, nowMarker.getPosition()) <= 100) {
+        if (DistanceUtil.getDistance(locationll, nowMarker.getPosition()) <= 1000) {
             return true;
         } else
             return false;
