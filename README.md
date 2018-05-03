@@ -20,8 +20,8 @@ This code is no longer being maintained.
     - [x] 附近车位
     - [x] 动态导航
 - [x] 车位管理
-    - [x] 图书搜索
-    - [x] 借书记录
+    - [x] 编辑车位
+    - [x] 修改车位信息
     - [x] 一键续借
     - [x] 还书提醒
 - [x] 签到排行榜
