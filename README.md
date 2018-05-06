@@ -12,6 +12,8 @@ Material
 --- | --- | ---
 主界面 | 地图上选择车位，弹出详细信息栏 | <img src="/Screenshots/地图1.gif" width="49%"> <img src="/Screenshots/地图2.gif" width="49%"> 
 登录&注册 |用户登录及注册界面|<img src="/Screenshots/登录.gif" width="49%"> <img src="/Screenshots/注册.gif" width="49%"> 
+
+
 **预览**：
 !["预览"](https://github.com/R-6/GXCW/raw/master/Screenshots/微信图片_20180414010808.jpg)
 
