@@ -10,7 +10,7 @@ Material
 ======================
 模块 | 描述 | 效果图
 --- | --- | ---
-主界面 | [Apache License V2](https://www.apache.org/licenses/LICENSE-2.0) |  <img src="/Screenshots/微信图片_20180414010808.jpg" width="39%"> <img src="/Screenshots/地图1.gif" width="39%"> <img src="/Screenshots/地图2.gif" width="39%"> 
+主界面 | 地图上选择车位，弹出详细信息栏 | <img src="/Screenshots/地图1.gif" width="39%"> <img src="/Screenshots/地图2.gif" width="39%"> 
 **预览**：
 !["预览"](https://github.com/R-6/GXCW/raw/master/Screenshots/微信图片_20180414010808.jpg)
 
