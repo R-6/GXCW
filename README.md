@@ -1,4 +1,4 @@
-# GXCW Android App
+# 共享车位 Android App
 
 基于百度地图sdk开发包的lbs应用，本人的毕业设计
 
@@ -10,7 +10,7 @@ Material
 ======================
 模块 | 描述 | 效果图
 --- | --- | ---
-主界面 | [Apache License V2](https://www.apache.org/licenses/LICENSE-2.0) |  <img src="/Screenshots/微信图片_20180414010808.jpg" width="39%"> <img src="/Screenshots/地图.gif" width="39%"> 
+主界面 | [Apache License V2](https://www.apache.org/licenses/LICENSE-2.0) |  <img src="/Screenshots/微信图片_20180414010808.jpg" width="39%"> <img src="/Screenshots/地图1.gif" width="39%"> <img src="/Screenshots/地图2.gif" width="39%"> 
 **预览**：
 !["预览"](https://github.com/R-6/GXCW/raw/master/Screenshots/微信图片_20180414010808.jpg)
 
@@ -50,62 +50,11 @@ Material
 - 车位信息在后台服务器中，app只设置了2个静态车位信息，可长按地图添加车位
 - 分享功能暂未实现，只实现界面布局
 
-## 快速开始
-
-安装 MySQL、Redis
-```
-略
-```
-
-安装依赖
-
-```
-pip install -r requirements.txt
-```
-
-创建配置文件
-```
-cp instance/config.example instance/config.py
-vi instance/config.py
-```
-
-初始化数据库
-
-```
-# into Python shell
->>> from main.models import db
->>> db.create_all()
-```
-
-运行
-
-```
-python run.py
-```
-
-运行队列任务
-
-```
-celery -A main.celery worker --beat -l info
-```
 
 测试
 
 ```
 这个开发者很懒，暂时没写下什么测试……
-```
-
-部署
-
-```
-# using gunicorn
-pip install gunicorn
-
-# run
-gunicorn -w 3 run:app -p wechat.pid -b 127.0.0.1:8000 -D --log-level warning --error-logfile gunicorn-error.log
-
-# reload
-kill -HUP `cat wechat.pid`
 ```
 
 ## License
