@@ -6,7 +6,11 @@
 
 项目的后台服务器只能在本地运行，本demo着重实现用户界面，逻辑交互；大部分用户信息，车位信息，历史信息使用静态数据，因此仅供参考
 
-
+Material
+======================
+模块 | 描述 | 效果图
+--- | --- | ---
+主界面 | [Apache License V2](https://www.apache.org/licenses/LICENSE-2.0) |  <img src="/Screenshots/微信图片_20180414010808.jpg" width="39%"> <img src="/Screenshots/地图.gif" width="39%"> 
 **预览**：
 !["预览"](https://github.com/R-6/GXCW/raw/master/Screenshots/微信图片_20180414010808.jpg)
 
