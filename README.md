@@ -12,7 +12,8 @@ Material
 --- | --- | ---
 主界面 | 地图上选择车位，弹出详细信息栏 | <img src="/Screenshots/地图1.gif" width="49%"> <img src="/Screenshots/地图2.gif" width="49%"> 
 登录&注册 |用户登录注册及修改个人信息界面|<img src="/Screenshots/登录.gif" width="32%"> <img src="/Screenshots/注册.gif" width="32%"> <img src="/Screenshots/修改个人信息.gif" width="32%"> 
-我的车位 |查看及编辑我的车位信息|<img src="/Screenshots/修改车位信息.gif" width="32%"> <img src="/Screenshots/滑动查看车位.gif" width="32%"><img src="/Screenshots/个人车位修改.gif" width="32%"> 
+我的车位 |查看及编辑我的车位信息，使用了[MaterialViewPager](https://github.com/florent37/MaterialViewPager)|<img src="/Screenshots/修改车位信息.gif" width="32%"> <img src="/Screenshots/滑动查看车位.gif" width="32%"><img src="/Screenshots/个人车位修改.gif" width="32%"> 
+导航|使用百度导航SDK，精准导航| <img src="/Screenshots/地图1.gif" width="49%"> <img src="/Screenshots/地图2.gif" width="49%"> 
 
 **预览**：
 !["预览"](https://github.com/R-6/GXCW/raw/master/Screenshots/微信图片_20180414010808.jpg)
