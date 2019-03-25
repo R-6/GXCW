@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:id="@+id/nav_group_1st">
+        <item
+            android:id="@+id/nav_user"
+            android:icon="@drawable/user"
+            android:title="我的账号"/>
+        <item
+            android:id="@+id/nav_car"
+            android:icon="@drawable/car"
+            android:title="我的车位"/>
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/history"
+            android:title="停车记录"/>
+    </group>
+
+    <group android:id="@+id/nav_group_3rd">
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_info_black_24dp"
+            android:title="关于"/>
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/settings"
+            android:title="设置"/>
+
+    </group>
+
+    <group android:id="@+id/nav_group_2nd">
+        <item
+            android:id="@+id/nav_github"
+            android:icon="@drawable/ic_github"
+            android:title="GitHub"/>
+    </group>
+</menu>

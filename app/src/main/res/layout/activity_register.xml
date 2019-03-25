@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.example.rw_l.gxcw.user.RegisterActivity">
+
+    <!--<android.support.design.widget.AppBarLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:theme="@style/AppTheme.AppBarOverlay">-->
+
+    <!--<android.support.v7.widget.Toolbar-->
+    <!--android:id="@+id/toolbar_register"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="?attr/actionBarSize"-->
+    <!--android:background="?attr/colorPrimary"-->
+    <!--app:popupTheme="@style/AppTheme.PopupOverlay"/>-->
+
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+    <FrameLayout
+        android:layout_width="320dp"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"
+        android:paddingTop="50dp">
+
+        <android.support.v7.widget.CardView
+
+            android:id="@+id/cv_add"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#2ea67f"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true"
+
+            >
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="50dp"
+                    android:text="注册"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    />
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="30dp">
+
+                    <android.support.design.widget.TextInputLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#f0f7f4"
+                        android:theme="@style/TextLabel">
+
+                        <EditText
+
+                            android:id="@+id/register_username"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/selector_bg_edit_2"
+                            android:hint="用户名"
+                            android:inputType="textPersonName"
+                            android:paddingBottom="2dp"
+                            android:textColor="#f0f7f4"
+                            android:textCursorDrawable="@drawable/bg_input_cursor_2"
+                            android:textSize="13sp"
+
+                            />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="30dp">
+
+                    <android.support.design.widget.TextInputLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#f0f7f4"
+                        android:theme="@style/TextLabel">
+
+                        <EditText
+
+                            android:id="@+id/register_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/selector_bg_edit_2"
+                            android:hint="密码"
+                            android:inputType="textPassword"
+                            android:paddingBottom="2dp"
+                            android:textColor="#f0f7f4"
+                            android:textCursorDrawable="@drawable/bg_input_cursor_2"
+                            android:textSize="13sp"
+
+                            />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="30dp">
+
+                    <android.support.design.widget.TextInputLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#f0f7f4"
+                        android:theme="@style/TextLabel">
+
+                        <EditText
+                            android:id="@+id/register_phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/selector_bg_edit_2"
+                            android:hint="手机号"
+                            android:inputType="phone"
+                            android:paddingBottom="2dp"
+                            android:textColor="#f0f7f4"
+                            android:textCursorDrawable="@drawable/bg_input_cursor_2"
+                            android:textSize="13sp"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/register_go"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:elevation="5dp"
+                    android:background="@drawable/bt_shape_2"
+                    android:stateListAnimator="@drawable/selector_bottom_animation"
+                    android:text="下一步"
+                    android:textColor="#2fa881"
+
+                    >
+                </Button>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:src="@drawable/plus_x"
+            android:transitionName="loginFab"
+            app:fabSize="normal"/>
+
+    </FrameLayout>
+
+
+</RelativeLayout>

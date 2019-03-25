@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="QMUI.Compat.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/qmui_config_color_black</item>
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:textColorSecondary">?attr/qmui_config_color_gray_3</item>
+        <item name="android:textColorSecondaryInverse">@color/colorAccent</item>
+    </style>
+</resources>

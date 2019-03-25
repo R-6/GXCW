@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollViewSingleLot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/material_view_pager_placeholder"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/cardMarginVertical"
+            android:layout_marginLeft="@dimen/cardMarginHorizontal"
+            android:layout_marginRight="@dimen/cardMarginHorizontal"
+            android:layout_marginTop="@dimen/cardMarginVertical"
+            android:background="@android:color/white"
+            app:cardElevation="4dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp">
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:background="@color/blue"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="28dp"
+                        android:text="名称"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/text_singleLot_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="25dp"
+                        android:text="233"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="18dp">
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:background="@color/blue"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="28dp"
+                        android:text="位置"
+                        android:textSize="16sp"/>
+
+                    <TextView
+
+                        android:id="@+id/text_singleLot_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="25dp"
+                        android:text="深圳市福田区"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="20dp">
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:background="@color/blue"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="28dp"
+                        android:text="可用开始时间"
+                        android:textSize="16sp"
+                        android:id="@+id/textView2"/>
+
+                    <TextView
+                        android:id="@+id/text_singleLot_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:text="9:00"
+                        android:layout_alignTop="@+id/textView2"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="25dp"/>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="20dp">
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:background="@color/blue"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="28dp"
+                        android:text="可用结束时间"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/text_singleLot_end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="25dp"
+                        android:text="20:00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="20dp">
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:background="@color/blue"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="28dp"
+                        android:text="审核状态"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/text_singleLot_apply"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="25dp"
+                        android:text="未提交"/>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="20dp">
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:background="@color/blue"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="28dp"
+                        android:text="现场图片"
+                        android:textSize="16sp"/>
+
+                </RelativeLayout>
+
+                <Button
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/bt_singleLot_edition"
+                    android:background="@drawable/bt_shape"
+                    android:stateListAnimator="@drawable/state_list_animator_z"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:text="修改车位信息"
+                    android:textColor="@color/blue"
+                    >
+                </Button>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
