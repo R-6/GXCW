@@ -1,21 +1,28 @@
 package com.example.rw_l.gxcw.user;
 
 
+import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.rw_l.gxcw.R;
+import com.example.rw_l.gxcw.RToolBar;
+import com.example.rw_l.gxcw.StatusBarUtil;
 import com.example.rw_l.gxcw.myAppContext;
 
 import org.apache.http.HttpEntity;
@@ -55,10 +62,12 @@ public class LoginActivity extends AppCompatActivity {
     FloatingActionButton fab;
 
     @BindView(R.id.toolbar_login)
-    Toolbar toolbar;
+    RToolBar toolbar;
 
     private Bundle loginBundle;
     myAppContext app;
+
+    SearchView mSearchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -69,8 +78,8 @@ public class LoginActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         app = (myAppContext) getApplication();
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        setToolBar(this,toolbar);
 
         loginBundle = new Bundle();
 
@@ -185,11 +194,56 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    public static void setToolBar(final AppCompatActivity activity, RToolBar toolBar){
+        activity.setSupportActionBar(toolBar);
+        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        StatusBarUtil.immersive(activity);
+        StatusBarUtil.setHeightAndPadding(activity,toolBar);
+//        ViewGroup.LayoutParams lp = toolBar.getLayoutParams();
+//        lp.height += StatusBarUtil.getStatusBarHeight(activity);//增高
+////        toolBar.setMinimumHeight(toolBar.getMinimumHeight() + StatusBarUtil.getStatusBarHeight(activity));
+//        toolBar.setPadding(toolBar.getPaddingLeft(), toolBar.getPaddingTop() + StatusBarUtil.getStatusBarHeight(activity),
+//                toolBar.getPaddingRight(), toolBar.getPaddingBottom());
+
+        StatusBarUtil.darkMode(activity,!toolBar.isDarkMode());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.login_toolbar, menu);
+
+        MenuItemCompat.OnActionExpandListener expandListener = new MenuItemCompat.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                // Do something when action item collapses
+                Toast.makeText(LoginActivity.this, "Collapse", Toast.LENGTH_SHORT).show();
+                return true;  // Return true to collapse action view
+            }
+
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                // Do something when expanded
+                Toast.makeText(LoginActivity.this, "Expand", Toast.LENGTH_SHORT).show();
+                return true;  // Return true to expand action view
+            }
+        };
+
+
+        MenuItem item = menu.findItem(R.id.action_search);
+        MenuItemCompat.setOnActionExpandListener(item, expandListener);
+
+        mSearchView = (SearchView) MenuItemCompat.getActionView(item);
+        //通过id得到搜索框控件
+//        mSearchAutoComplete = (SearchView.SearchAutoComplete) mSearchView.findViewById(R.id.search_src_text);
+        return true;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
+                onBackPressed();
                 break;
         }
         return super.onOptionsItemSelected(item);

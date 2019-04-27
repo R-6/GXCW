@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -80,6 +81,8 @@ public class HistoryActivity extends AppCompatActivity{
         StatusBarUtil.setPaddingSmart(this,toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             private int color = ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)&0x00ffffff;
@@ -108,6 +111,24 @@ public class HistoryActivity extends AppCompatActivity{
             public void onClick(View v) {
                 cardView2.setVisibility(cardView2.getVisibility()==View.VISIBLE? View.GONE : View.VISIBLE);
             }
+
+        });
+        cardView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lottieAnimationViewbt.setVisibility(View.VISIBLE);
+                lottieAnimationViewbt.playAnimation();
+
+            }
+        });
+
+        lottieAnimationViewbt.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                if (animation.getAnimatedFraction() == 1f){
+                    lottieAnimationViewbt.setVisibility(View.GONE);
+                }
+            }
         });
 //        img_card1.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -118,14 +139,15 @@ public class HistoryActivity extends AppCompatActivity{
         bt_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                img_card1.setVisibility(View.GONE);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        img_card2.setVisibility(View.VISIBLE);
-
-                    }
-                },200);
+                img_card1.setVisibility(View.INVISIBLE);
+                img_card2.setVisibility(View.VISIBLE);
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        img_card2.setVisibility(View.VISIBLE);
+//
+//                    }
+//                },200);
 //                for (int i=0;i<rl_animation.getChildCount();i++){
 //                    if (rl_animation.getChildAt(i).getVisibility()==View.GONE){
 //                        rl_animation.getChildAt(i).setVisibility(View.VISIBLE);
@@ -143,14 +165,15 @@ public class HistoryActivity extends AppCompatActivity{
         bt_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                img_card2.setVisibility(View.GONE);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        img_card1.setVisibility(View.VISIBLE);
-
-                    }
-                },200);
+                img_card2.setVisibility(View.INVISIBLE);
+                img_card1.setVisibility(View.VISIBLE);
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        img_card1.setVisibility(View.VISIBLE);
+//
+//                    }
+//                },200);
 //                for (int i=0;i<rl_animation.getChildCount();i++){
 //                    if (rl_animation.getChildAt(i).getVisibility()==View.VISIBLE){
 //                        rl_animation.getChildAt(i).setVisibility(View.GONE);
@@ -167,7 +190,7 @@ public class HistoryActivity extends AppCompatActivity{
         });
 
 
-//        initAnim();
+        initAnim();
     }
 
     private void initAnim(){
@@ -178,8 +201,9 @@ public class HistoryActivity extends AppCompatActivity{
         mTransition.setAnimator(LayoutTransition.APPEARING,getInAnim());
         mTransition.setAnimator(LayoutTransition.DISAPPEARING,getOutAnim());
         //---------------------------------------------------
-        mTransition.setStartDelay(LayoutTransition.APPEARING,0);
-        mTransition.setStartDelay(LayoutTransition.DISAPPEARING,0);
+        mTransition.setStartDelay(LayoutTransition.CHANGE_APPEARING,300);
+        mTransition.setStartDelay(LayoutTransition.CHANGE_DISAPPEARING,300);
+//        mTransition.setStartDelay(LayoutTransition.DISAPPEARING,0);
         //---------------------------------------------------
         mTransition.setInterpolator(LayoutTransition.APPEARING, new DecelerateInterpolator());
         mTransition.setInterpolator(LayoutTransition.DISAPPEARING,new DecelerateInterpolator());

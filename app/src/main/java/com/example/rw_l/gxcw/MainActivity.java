@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         setStaticDataToInfo();       //设置静态车位信息
-        getDatafromServer();        //从服务器端获取数据填充到Info中
+//        getDatafromServer();        //从服务器端获取数据填充到Info中
 
         initMarkerClickEvent();     //点击Marker点事件监听
         initMapClickEvent();        //点击地图事件监听
@@ -329,6 +329,7 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.nav_history) {
             Intent intent = new Intent(MainActivity.this,HistoryActivity.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         } else if (id == R.id.nav_github) {
             Intent intent = new Intent(Intent.ACTION_VIEW);

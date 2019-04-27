@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RToolBar">
+
+        <attr name="titleText" format="string"/> <!-- 标题 -->
+        <attr name="titleSize" format="dimension"/> <!-- 大小 -->
+        <attr name="titleColor" format="color"/> <!-- 颜色 -->
+        <!--<attr name="backgroundColor" format="color"/> &lt;!&ndash; 背景颜色 &ndash;&gt;-->
+        <!--<attr name="backgroundRes" format="reference"/> &lt;!&ndash; 背景图片 &ndash;&gt;-->
+        <attr name="darkMode" format="boolean"/> <!--  -->
+        <attr name="navigationIconHeight" format="dimension"/> <!--  -->
+        <attr name="navigationIconWidth" format="dimension"/> <!--  -->
+
+    </declare-styleable>
+</resources>
